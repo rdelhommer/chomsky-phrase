@@ -6,7 +6,7 @@
   "bin": {
     "memorable-phrase": "bin/chomsky-phrase.js"
   },
-  "repository": "https://github.com/rdelhommer/memorable-phrase",
+  "repository": "https://github.com/rdelhommer/chomsky-phrase",
   "author": "Rick Delhommer <rdelhommer@gmail.com>",
   "license": "MIT"
 }
