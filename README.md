@@ -31,5 +31,5 @@ npm install chomsky-phrase -g
 ```sh
 chomsky-phrase
 
->>> [ 29, 'astray', 'skirts', 'abound', 'wildly' ]
+>>> [ 3, 'sultry', 'clogs', 'persist', 'soundly' ]
 ```
