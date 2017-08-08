@@ -1,0 +1,12 @@
+{
+  "name": "chomsky-phrase",
+  "version": "1.0.0",
+  "description": "Generates memorable phrases using the Wordnik API. Phrases have the similar sentence structure as Noam Chomsky's famous 'Colorless green ideas sleep furiously' and are not guaranteed to make sense",
+  "main": "index.js",
+  "bin": {
+    "memorable-phrase": "bin/chomsky-phrase.js"
+  },
+  "repository": "https://github.com/rdelhommer/memorable-phrase",
+  "author": "Rick Delhommer <rdelhommer@gmail.com>",
+  "license": "MIT"
+}
