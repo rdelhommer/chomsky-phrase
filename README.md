@@ -10,16 +10,51 @@ Can be installed globally as a CLI tool or locally as a project dependency.  Has
 npm install chomsky-phrase
 ```
 
-### Usage
+### Default Usage
 ```js
 var chomsky = require('chomsky-phrase');
-var phraseFactory = new chomsky.PhraseFactory();
+var phraseFactory = chomsky.PhraseFactory.createDefault();
 
-phraseFactory.getPhrase()
-  .then((phraseArray) => {
-    console.log(phraseArray);
-  });
+phraseFactory.create((phrase) => {
+  console.log(phrase);
+});
 ```
+
+### Custom Phrases
+You can build a custom phrase factory to output a phrase of any number of words and with any structure.
+
+#### WordnikConfig
+Each WordFactory takes a WordnikConfig that defines the API options for getting a random word.  At this time, the following url options are configurable:
+* wordType
+* minCorpusCount
+* minLength
+* maxLength
+
+See the Wordnik API [getRandomWords documentation](http://developer.wordnik.com/docs.html#!/words/getRandomWords_get_3) for more information
+
+#### WordFactory
+A WordFactory creates words. Each WordFactory needs a WordnikConfig and optional filters to be used on the getRandomWords API response.  Filter functions are intended to be used with the Array.prototype.filter function. Below is an example filter function that keeps only words that end with 'ing'
+```js
+function onlyIng(word) {
+  return word.endsWith('ing');
+}
+```
+Filters used in the default PhraseFactory can be found [here](https://github.com/rdelhommer/chomsky-phrase/blob/master/lib/result-filters.js)
+
+#### PhraseFactory
+Inject a WordFactory array that will be used to create the phrase. Each WordFactory is created in order to form the phrase. 
+
+IE - The final phrase will be
+```js
+[
+  WordFactoryArray[0].create(),
+  WordFactoryArray[1].create(),
+  ...
+  WordFactoryArray[n].create()
+]
+```
+
+See [PhraseFactory.createDefault()](https://github.com/rdelhommer/chomsky-phrase/blob/38fc34c51fe33a6d2f63c35edfce5c29619a0475/lib/phrase-factory.js#L31) to see how the default factory is created.
 
 ## Global
 ### Installation
