@@ -30,6 +30,14 @@ Each WordFactory takes a WordnikConfig that defines the API options for getting 
 * minLength
 * maxLength
 
+Example:
+```js
+var chomsky = require('chomsky-phrase');
+
+// Get Adjectives between 1 and 25 characters long with minCorpusCount = 10000
+var adjectiveConfig = new chomsky.WordnikConfig('adjective', 10000, 1, 25);
+```
+
 See the Wordnik API [getRandomWords documentation](http://developer.wordnik.com/docs.html#!/words/getRandomWords_get_3) for more information
 
 #### WordFactory
@@ -40,6 +48,17 @@ function onlyIng(word) {
 }
 ```
 Filters used in the default PhraseFactory can be found [here](https://github.com/rdelhommer/chomsky-phrase/blob/master/lib/result-filters.js)
+
+Example:
+```js
+var chomsky = require('chomsky-phrase');
+
+var adjectiveConfig = new chomsky.WordnikConfig('adjective');
+var adjectiveFactory = new chomsky.WordFactory(adjectiveConfig, [
+  chomsky.resultFilters.filterWithEndings([ 'y', 'ing' ]),
+  chomsky.resultFilters.filterContractions
+]);
+```
 
 #### PhraseFactory
 Inject a WordFactory array that will be used to create the phrase. Each WordFactory is created in order to form the phrase. 
