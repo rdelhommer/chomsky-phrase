@@ -68,7 +68,7 @@ console.log(adjectiveFactory.create());
 ```
 
 #### PhraseFactory
-Inject a WordFactory array that will be used to create the phrase. Each WordFactory is created in order to form the phrase. 
+Inject a WordFactory array that will be used to create the phrase. Each WordFactory is used in order to form the phrase. 
 
 IE - The final phrase will be
 ```js
