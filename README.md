@@ -1,8 +1,11 @@
 # Chomsky-Phrase
 
-Generates memorable phrases using the Wordnik API. Phrases have sentence structure similar to Noam Chomsky's famous 'Colorless green ideas sleep furiously' and are not guaranteed to make sense
+Generates memorable phrases using the Wordnik API getRandomWords method. Phrases have sentence structure similar to Noam Chomsky's famous 'Colorless green ideas sleep furiously' and are not guaranteed to make sense.
 
 Can be installed globally as a CLI tool or locally as a project dependency.  Has no third-party dependencies.
+
+## How it Works (Briefly)
+For each word in a phrase, chomsky-phrase sends a request to the Wordnik API getRandomWords method. A random word from the response is then selected. This implementation was chosen to let users obtain proper word tenses since the Wordnik API useCanonicalForm option seems to be broken.
 
 ## Local
 ### Installation
@@ -41,7 +44,7 @@ var adjectiveConfig = new chomsky.WordnikConfig('adjective', 10000, 1, 25);
 See the Wordnik API [getRandomWords documentation](http://developer.wordnik.com/docs.html#!/words/getRandomWords_get_3) for more information
 
 #### WordFactory
-A WordFactory creates words. Each WordFactory needs a WordnikConfig and optional filters to be used on the getRandomWords API response.  Filter functions are intended to be used with the Array.prototype.filter function. Below is an example filter function that keeps only words that end with 'ing'
+A WordFactory creates words. Each WordFactory takes a WordnikConfig and optional filters to be used on the getRandomWords API response.  Filter functions are intended to be used with the Array.prototype.filter function. Below is an example filter function that keeps only words that end with 'ing'
 ```js
 function onlyIng(word) {
   return word.endsWith('ing');
