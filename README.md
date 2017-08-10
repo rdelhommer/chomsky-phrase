@@ -61,6 +61,10 @@ var adjectiveFactory = new chomsky.WordFactory(adjectiveConfig, [
   chomsky.resultFilters.filterWithEndings([ 'y', 'ing' ]),
   chomsky.resultFilters.filterContractions
 ]);
+
+console.log(adjectiveFactory.create());
+
+>>> 'fiery'
 ```
 
 #### PhraseFactory
