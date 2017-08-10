@@ -76,6 +76,7 @@ IE - The final phrase will be
 See [PhraseFactory.createDefault()](https://github.com/rdelhommer/chomsky-phrase/blob/38fc34c51fe33a6d2f63c35edfce5c29619a0475/lib/phrase-factory.js#L31) to see how the default factory is created.
 
 ## Global
+Installing chomsky-phrase globally will allow you to create phrases with the default PhraseFactory from the CLI.  It is not configurable at this time.
 ### Installation
 ```sh
 npm install chomsky-phrase -g
