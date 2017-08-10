@@ -4,7 +4,7 @@ Generates memorable phrases using the Wordnik API getRandomWords method. Phrases
 
 Can be installed globally as a CLI tool or locally as a project dependency.  Has no third-party dependencies.
 
-## How it Works (Briefly)
+## Brief Implementation Details
 For each word in a phrase, chomsky-phrase sends a request to the Wordnik API getRandomWords method. A random word from the response is then selected. This implementation was chosen to let users obtain proper word tenses since the Wordnik API useCanonicalForm option seems to be broken.
 
 ## Local
