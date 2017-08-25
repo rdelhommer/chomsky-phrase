@@ -44,7 +44,7 @@ var adjectiveConfig = new chomsky.WordnikConfig('adjective', 10000, 1, 25);
 See the Wordnik API [getRandomWords documentation](http://developer.wordnik.com/docs.html#!/words/getRandomWords_get_3) for more information
 
 #### WordFactory
-A WordFactory creates words. Each WordFactory takes a WordnikConfig and optional filters to be used on the getRandomWords API response.  Filter functions are intended to be used with the Array.prototype.filter function. Below is an example filter function that keeps only words that end with 'ing'
+A WordFactory creates words. Each WordFactory takes a WordnikConfig and optional filters to be used on the getRandomWords API response.  Filter functions are used with the Array.prototype.filter function. Below is an example filter function that keeps only words that end with 'ing'
 ```js
 function onlyIng(word) {
   return word.endsWith('ing');
@@ -55,9 +55,10 @@ Filters used in the default PhraseFactory can be found [here](https://github.com
 Example:
 ```js
 var chomsky = require('chomsky-phrase');
+var http = require('http');
 
 var adjectiveConfig = new chomsky.WordnikConfig('adjective');
-var adjectiveFactory = new chomsky.WordFactory(adjectiveConfig, [
+var adjectiveFactory = new chomsky.WordFactory(http, adjectiveConfig, [
   chomsky.resultFilters.filterWithEndings([ 'y', 'ing' ]),
   chomsky.resultFilters.filterContractions
 ]);
