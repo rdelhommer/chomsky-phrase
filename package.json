@@ -8,5 +8,16 @@
   },
   "repository": "https://github.com/rdelhommer/chomsky-phrase",
   "author": "Rick Delhommer <rdelhommer@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0"
+  },
+  "ava": {
+    "files": [
+      "tests/*.js"
+    ]
+  }
 }
